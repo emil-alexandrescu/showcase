@@ -1,4 +1,29 @@
 h1 Sign Up
-div
-    button.btn.btn-default(ng-click='vm.signUp()') Create User
+.row
+    .col-sm-12
+        form.form(name='form', ng-submit='vm.signUp(form)', novalidate='')
+            .form-group(ng-class='{ "has-success": form.email.$valid && vm.submitted, "has-error": form.email.$invalid && vm.submitted }')
+                label Email
+                input.form-control(type='text', name='username', ng-model='vm.user.username', required='' api-error='')
+                p.help-block(ng-show='form.email.$error.required && vm.submitted')
+                    | Username is required.
+                p.help-block(ng-show='form.username.$error.api')
+                    | {{ errors.username }}
+            .form-group(ng-class='{ "has-success": form.password.$valid && vm.submitted, "has-error": form.password.$invalid && vm.submitted }')
+                label Password
+                input.form-control(type='password', id='password', name='password', ng-model='vm.user.password', required='' api-error='')
+                p.help-block(ng-show='form.password.$error.required && vm.submitted')
+                    | Password is required
+                p.help-block(ng-show='form.password.$error.api')
+                    | {{ errors.password }}
+            .form-group(ng-class='{ "has-success": form.passwordConfirmation.$valid && vm.submitted, "has-error": form.passwordConfirmation.$invalid && vm.submitted }')
+                label Password Confirmation
+                input.form-control(type='password', name='passwordConfirmation', ng-model='vm.user.passwordConfirmation' password-confirmation='password')
+                p.help-block(ng-show='form.passwordConfirmation.$error.pwmatch && vm.submitted')
+                    | Password does not match
+            div
+                button.btn.btn-default.btn-login(type='submit')
+                    | Sign up
+br
+br
 a(ui-sref="home") Home

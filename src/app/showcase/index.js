@@ -8,5 +8,7 @@ require('angular')
         /* Custom */
         require('../signup')
     ])
+    .directive('apiError', require('./components/api-error/api-error'))
+    .directive('passwordConfirmation', require('./components/password-confirmation/password-confirmation'))
     .config(require('./config'))
     .config(require('./route'));

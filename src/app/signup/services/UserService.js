@@ -15,7 +15,7 @@ function UserService() {
     //////////
 
     function create() {
-        console.debug('Creating a user');
+        // stubbing API for creating account. Always success!
+        return Promise.resolve();
     }
 }
-
