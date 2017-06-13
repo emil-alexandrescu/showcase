@@ -1,3 +1,12 @@
-h1 Hello World
-a(ui-sref="signup") Sign Up | 
-a(ui-sref="login") Login
+h1 Hello 
+    span(ng-bind="vm.user.username")
+
+a(href="#", ng-click="vm.logout()") Logout
+
+p(ng-show="vm.loading") Loading
+
+div(ng-show="!vm.loading")
+    p Total Count: 
+        span(ng-show="vm.totalCount" ng-bind="vm.totalCount")
+    div(ng-repeat="item in vm.items track by $index")
+        div(github-item, value="item")

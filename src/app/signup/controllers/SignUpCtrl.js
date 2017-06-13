@@ -5,7 +5,7 @@ module.exports = SignUpCtrl;
 /**
  * @ngInject
  */
-function SignUpCtrl(UserService, $location) {
+function SignUpCtrl(UserService, $location, AuthService) {
     var vm = this;
 
     vm.errors = {};
@@ -24,6 +24,7 @@ function SignUpCtrl(UserService, $location) {
                 password: vm.user.password
             })
             .then(function() {
+                AuthService.setUser(vm.user);
                 // account is created. Let's redirect to home.
                 $location.path('/');
             })
