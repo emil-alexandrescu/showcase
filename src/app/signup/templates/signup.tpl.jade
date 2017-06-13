@@ -3,7 +3,7 @@ h1 Sign Up
     .col-sm-12
         form.form(name='form', ng-submit='vm.signUp(form)', novalidate='')
             .form-group(ng-class='{ "has-success": form.email.$valid && vm.submitted, "has-error": form.email.$invalid && vm.submitted }')
-                label Email
+                label Username
                 input.form-control(type='text', name='username', ng-model='vm.user.username', required='' api-error='')
                 p.help-block(ng-show='form.email.$error.required && vm.submitted')
                     | Username is required.

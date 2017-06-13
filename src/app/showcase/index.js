@@ -6,7 +6,8 @@ require('angular')
         require('angular-ui-router'),
 
         /* Custom */
-        require('../signup')
+        require('../signup'),
+        require('../login')
     ])
     .directive('apiError', require('./components/api-error/api-error'))
     .directive('passwordConfirmation', require('./components/password-confirmation/password-confirmation'))

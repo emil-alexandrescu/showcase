@@ -1,0 +1,22 @@
+h1 Login
+.row
+    .col-sm-12
+        .alert.alert-danger(ng-show='vm.error' ng-bind='vm.error')
+        form.form(name='form', ng-submit='vm.login(form)', novalidate='')
+            .form-group(ng-class='{ "has-success": form.email.$valid && vm.submitted, "has-error": form.email.$invalid && vm.submitted }')
+                label Username
+                input.form-control(type='text', name='username', ng-model='vm.user.username', required='')
+                p.help-block(ng-show='form.email.$error.required && vm.submitted')
+                    | Username is required.
+            .form-group(ng-class='{ "has-success": form.password.$valid && vm.submitted, "has-error": form.password.$invalid && vm.submitted }')
+                label Password
+                input.form-control(type='password', id='password', name='password', ng-model='vm.user.password', required='')
+                p.help-block(ng-show='form.password.$error.required && vm.submitted')
+                    | Password is required
+            div
+                button.btn.btn-default.btn-login(type='submit')
+                    | Login
+br
+br
+a(ui-sref="home") Home | 
+a(ui-sref="signup") Sign Up
